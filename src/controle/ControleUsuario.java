@@ -1,19 +1,19 @@
 package controle;
 import financeiro.*;
 
-public class ControleCadastro {
-	private Cadastro[] a;
-	private int qtdAlunos;
+public class ControleUsuario {
+	private Usuario[] a;
+	private int qtdUsuarios;
 	
-	public ControleCadastro(ControleDados d) {
-		a = d.getAlunos();
-		qtdAlunos = d.getQtdAlunos();
+	public ControleUsuario(ControleDados d) {
+		a = d.getUsuario();
+		qtdUsuarios = d.getQtUsuario();
 		
 	}
 	
 	public String[] getNomeAluno() {
-		String[] s = new String[qtdAlunos];
-		for(int i = 0; i < qtdAlunos; i++) {
+		String[] s = new String[qtdUsuarios];
+		for(int i = 0; i < qtdUsuarios; i++) {
 			s[i] = a[i].getNome();
 		}
 		
@@ -21,38 +21,26 @@ public class ControleCadastro {
 	}
 	
 	public int getQtd() {
-		return qtdAlunos;
+		return qtdUsuarios;
 	}
 
 	public void setQtd(int qtd) {
-		this.qtdAlunos = qtd;
+		this.qtdUsuarios = qtd;
 	}
 	
 	public String getNome(int i) {		
 		return a[i].getNome();
 	}
 	
-	public String getCPF(int i) {
-		String numCPF = String.valueOf(a[i].getCPF());
-		return numCPF;
+	public String getEmail(int i) {
+		return a[i].getEmail();
+		
 	}
 	
-	public String getID(int i) {
-		String numID = String.valueOf(a[i].getNumID());
-		return numID;
+	public void setQtUsuario(int qtdUsuarios) {
+		this.qtdUsuarios = qtdUsuarios;
 	}
 	
-	public Telefone getTelefone(int i) {
-		return a[i].getNumTel();
-	}
 
-	public void setQtdAlunos(int qtdAlunos) {
-		this.qtdAlunos = qtdAlunos;
-	}
-	
-	
-	public String getEndereco(int i) {		
-		return a[i].getEndereco();
-	}	
 	
 }
