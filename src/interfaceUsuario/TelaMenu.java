@@ -1,9 +1,10 @@
 package interfaceUsuario;
 
+import controle.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import financeiro.*;
+
 
 public class TelaMenu implements ActionListener {
 	
@@ -15,11 +16,11 @@ public class TelaMenu implements ActionListener {
 	public static ControleDados dados = new ControleDados();
 	
 	public TelaMenu() {
-		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(120, 10, 150, 30);
-		usuario.setBounds(140, 100, 100, 30);
-		cadastro.setBounds(140, 150, 100, 30);
-		resultado.setBounds(140, 50, 100, 30);
+		titulo.setFont(new Font("Arial", Font.BOLD, 40));
+		titulo.setBounds(240, 20, 300, 60);
+		usuario.setBounds(280, 200, 200, 60);
+		cadastro.setBounds(280, 300, 200, 60);
+		resultado.setBounds(280, 100, 200, 60);
 		
 		janela.setLayout(null);
 		
@@ -28,7 +29,7 @@ public class TelaMenu implements ActionListener {
 		janela.add(cadastro);
 		janela.add(resultado);
 		
-		janela.setSize(400, 250);
+		janela.setSize(800, 500);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setVisible(true);
 	}
@@ -48,12 +49,11 @@ public class TelaMenu implements ActionListener {
 			new TelaUsuario().mostrarDados(dados, 1);
 		
 		if(src == cadastro)
-			new TelaCadastroFinanceiro().mostrarDados(dados, 2);
-		
+			new TelaCadastroFinanceiro().inserirCadastro(1, dados ,0);		
 		if(src == resultado)
 			JOptionPane.showMessageDialog(null, 
 					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a curso e a matrícula", null, 
+					+ "relacionadas a salvar", null, 
 					JOptionPane.INFORMATION_MESSAGE);
 	}
 }

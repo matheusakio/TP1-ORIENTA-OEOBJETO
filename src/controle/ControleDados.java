@@ -25,19 +25,6 @@ public class ControleDados {
 	}
 	
 	
-	/*public boolean inserirEditarUsuario(String[] dadosUsuario) {
-		if(!dadosUsuario[3].matches("[0-9]+") || !dadosUsuario[4].matches("[0-9]+") || 
-				!dadosUsuario[5].matches("[0-9]+") || !dadosUsuario[6].matches("[0-9]+")) {
-			return false;
-		} else {
-			Usuario a = new Usuario(dadosUsuario[1], dadosUsuario[2], Integer.parseInt(dadosUsuario[3]), 
-						Integer.parseInt(dadosUsuario[4]), new CPF(Integer.parseInt(dadosUsuario[5]),
-								Integer.parseInt(dadosUsuario[6])));
-				d.inserirEditarUsuario(a, Integer.parseInt(dadosUsuario[0]));
-				return true;
-		}
-	}*/
-	
 	public boolean removerAluno(int i) {
 		String alunoRemovido = d.getUsuario()[i].getNome();
 

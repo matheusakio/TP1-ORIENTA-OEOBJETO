@@ -2,11 +2,11 @@ package controle;
 import financeiro.*;
 
 public class ControleUsuario {
-	private Usuario[] a;
+	private Usuario[] usuario;
 	private int qtdUsuarios;
 	
 	public ControleUsuario(ControleDados d) {
-		a = d.getUsuario();
+		usuario = d.getUsuario();
 		qtdUsuarios = d.getQtUsuario();
 		
 	}
@@ -14,7 +14,7 @@ public class ControleUsuario {
 	public String[] getNomeAluno() {
 		String[] s = new String[qtdUsuarios];
 		for(int i = 0; i < qtdUsuarios; i++) {
-			s[i] = a[i].getNome();
+			s[i] = usuario[i].getNome();
 		}
 		
 		return s;
@@ -29,11 +29,11 @@ public class ControleUsuario {
 	}
 	
 	public String getNome(int i) {		
-		return a[i].getNome();
+		return usuario[i].getNome();
 	}
 	
 	public String getEmail(int i) {
-		return a[i].getEmail();
+		return usuario[i].getEmail();
 		
 	}
 	

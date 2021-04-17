@@ -11,94 +11,74 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
 
-public class TelaCadastroFinanceiro implements ActionListener {
+public class TelaCadastroUsuario implements ActionListener {
 
 	private JFrame janela;
-	private JLabel labelReceitaFixa= new JLabel("Receita Fixa: ");
-	private JTextField valorReceitaFixa;
-	private JLabel labelReceitaVariavel= new JLabel("Receita Variavel: ");
-	private JTextField valorReceitaVariavel;
-	private JLabel labelDespesaFixa= new JLabel("Despesa Fixa: ");
-	private JTextField valorDespesaFixa;
-	private JLabel labelDespesaVariavel= new JLabel("Despesa Variavel: ");
-	private JTextField valorDespesaVariavel;
-	private JLabel labelImpostos = new JLabel("Imposto: ");
-	private JTextField valorImpostos;
-	private JLabel labelPlanoDeContas = new JLabel("Plano de contas: ");
-	private JTextField valorPlanoDeContas;
-	private JLabel labelRendimentos = new JLabel("Rendimentos: ");
-	private JTextField valorRendimentos;
+	private JLabel labelNome = new JLabel("Nome: ");
+	private JTextField valorNome;
+	private JLabel labelEmail = new JLabel("Email: ");
+	private JTextField valorEmail;
 	private JButton botaoExcluir = new JButton("Excluir");
 	private JButton botaoSalvar = new JButton("Salvar");
 	//private String[] novoDado = new String[9];
-	//private static ControleDados dados;
+	private static ControleDados dados;
 	//private int posicao;
 	//private int opcao;
 	private String s;
 
-	public void inserirCadastro(int op, ControleDados d, int pos) {
+	public void inserirEditar(int op, ControleDados d, 
+			TelaUsuario p, int pos) {
 
 		//opcao = op;
 		//posicao = pos;
-		//dados = d;
+		dados = d;
 
 		if (op == 1) s = "Cadastro de Aluno";
-
+		if (op == 3) s = "Detalhe de Aluno";
 
 		janela = new JFrame(s);
 
 		//Preenche dados com dados do aluno clicado
 		if (op == 3) {
-	
+			valorNome = new JTextField(dados.getUsuario()[pos].getNome(), 200);
+			valorEmail = new JTextField(dados.getUsuario()[pos].getEmail(),200);		
 
-		} else{ //Não preenche com dados
+		}  else { //Não preenche com dados
 
-			valorReceitaFixa = new JTextField(200);
-			valorReceitaVariavel = new JTextField(200);
-			valorDespesaFixa = new JTextField(200);
-			valorDespesaVariavel = new JTextField(200);
-			valorImpostos = new JTextField(200);
-			valorPlanoDeContas = new JTextField(200);
-			valorRendimentos = new JTextField(200);
+			valorNome = new JTextField(200);
+			valorEmail = new JTextField(200);
 
 			botaoSalvar.setBounds(245, 175, 115, 30);
 		}
 
-		labelReceitaFixa.setBounds(30, 20, 150, 25);
-		valorReceitaFixa.setBounds(180, 20, 180, 25);
-		labelReceitaVariavel.setBounds(30, 50, 150, 25);
-		valorReceitaVariavel.setBounds(180, 50, 180, 25);
-		labelDespesaFixa.setBounds(30, 50, 150, 25);
-		valorDespesaFixa.setBounds(180, 50, 180, 25);
-		labelDespesaVariavel.setBounds(30, 50, 150, 25);
-		valorDespesaVariavel.setBounds(180, 50, 180, 25);
-		labelImpostos.setBounds(30, 50, 150, 25);
-		valorImpostos.setBounds(180, 50, 180, 25);
-		labelPlanoDeContas.setBounds(30, 50, 150, 25);
-		valorPlanoDeContas.setBounds(180, 50, 180, 25);
-		labelRendimentos.setBounds(30, 50, 150, 25);
-		valorRendimentos.setBounds(180, 50, 180, 25);
+		labelNome.setBounds(30, 20, 150, 25);
+		valorNome.setBounds(180, 20, 180, 25);
+		labelEmail.setBounds(30, 50, 150, 25);
+		valorEmail.setBounds(180, 50, 180, 25);
 
 
-		this.janela.add(labelReceitaFixa);
-		this.janela.add(valorReceitaFixa);
-		this.janela.add(labelReceitaVariavel);
-		this.janela.add(valorReceitaVariavel);
-		this.janela.add(labelDespesaFixa);
-		this.janela.add(valorDespesaFixa);
-		this.janela.add(labelDespesaVariavel);
-		this.janela.add(valorDespesaVariavel);
-		this.janela.add(labelImpostos);
-		this.janela.add(valorImpostos);
-		this.janela.add(labelPlanoDeContas);
-		this.janela.add(valorPlanoDeContas);
-		this.janela.add(labelRendimentos);
-		this.janela.add(valorRendimentos);
+		//Coloca os campos relacionados a endereco se aluno
+		if (op == 1 || op == 3 ) {
+			this.janela.add(labelEmail);
+			this.janela.add(valorEmail);
+
+		}
+
+
+		//Coloca botoes de excluir e salvar
+		if (op == 3) {
+			botaoSalvar.setBounds(120, 175, 115, 30);
+			botaoExcluir.setBounds(245, 175, 115, 30);
+			this.janela.add(botaoExcluir);
+		}
+
+		this.janela.add(labelNome);
+		this.janela.add(valorNome);
 		this.janela.add(botaoSalvar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(600, 350);
+		this.janela.setSize(400, 250);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);

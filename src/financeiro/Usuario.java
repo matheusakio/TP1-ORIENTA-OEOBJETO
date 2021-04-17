@@ -7,6 +7,7 @@ public class Usuario {
 	private Date dataNasc;
 	private String nome;
 	private String email;
+
 	
 	public Usuario(String n, String e) {
 		nome = n;
