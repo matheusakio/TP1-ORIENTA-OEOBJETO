@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
-
+// tela para cadastrar um novo usuario
 public class TelaCadastroUsuario implements ActionListener {
 
 	private JFrame janela;
@@ -26,7 +26,7 @@ public class TelaCadastroUsuario implements ActionListener {
 	//private int opcao;
 	private String s;
 
-	public void inserirEditar(int op, ControleDados d, 
+	public void inserirEditar(int op, ControleDados d, // tela para casdatrar novo usuario, editar ou excluir
 			TelaUsuario p, int pos) {
 
 		//opcao = op;
@@ -57,7 +57,7 @@ public class TelaCadastroUsuario implements ActionListener {
 		valorEmail.setBounds(180, 50, 180, 25);
 
 
-		//Coloca os campos relacionados a endereco se aluno
+		//Coloca os campos relacionados email do usuario
 		if (op == 1 || op == 3 ) {
 			this.janela.add(labelEmail);
 			this.janela.add(valorEmail);
@@ -71,7 +71,7 @@ public class TelaCadastroUsuario implements ActionListener {
 			botaoExcluir.setBounds(245, 175, 115, 30);
 			this.janela.add(botaoExcluir);
 		}
-
+		// interface do cadastro
 		this.janela.add(labelNome);
 		this.janela.add(valorNome);
 		this.janela.add(botaoSalvar);
@@ -85,7 +85,7 @@ public class TelaCadastroUsuario implements ActionListener {
 		botaoExcluir.addActionListener(this);
 	}
 
-
+	// botoes para salvar e exluir (precisam ser melhorados, por isso estão com information
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoSalvar) {

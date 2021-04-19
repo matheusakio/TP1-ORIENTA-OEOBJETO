@@ -6,7 +6,7 @@ import javax.swing.event.*;
 import controle.*;
 
 
-
+// aqui é onde veremos os usuarios cadastrados e onde tera um botão para cadastrar
 public class TelaUsuario implements ActionListener, ListSelectionListener {		
 	private JFrame janela;
 	private JLabel titulo;
@@ -21,14 +21,14 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 		dados = d;
 
 		switch (op) {
-		case 1:// Mostrar dados de alunos cadastrados (JList)
+		case 1:// Mostrar dados dos usuarios cadastrados (JList)
 			listaNomes = new ControleUsuario(dados).getNomeAluno();
 			listaUsuariosCadastrados = new JList<String>(listaNomes);
 			janela = new JFrame("Usuarios");
 			titulo = new JLabel("Usuarios Cadastros");
 			cadastro = new JButton("Cadastrar");
 			refresh = new JButton("Refresh");
-
+			// interface dos usuarios cadastrados
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 250, 30);
 			listaUsuariosCadastrados.setBounds(20, 50, 350, 120);
@@ -67,12 +67,12 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		//Cadastro de novo aluno
+		//Cadastro de novo usuario
 		if(src == cadastro)
 			new TelaCadastroUsuario().inserirEditar(1, dados, this, 0);
 
 
-		// Atualiza a lista de nomes de alunos mostrada no JList
+		// Atualiza a lista de nomes dos usuarios mostrada no JList
 		if(src == refresh) {
 			listaUsuariosCadastrados.setListData(new ControleUsuario(dados).getNomeAluno());			
 			listaUsuariosCadastrados.updateUI();

@@ -3,7 +3,7 @@ package financeiro;
 public class Receita {
 	private double receitaFixa;
 	private double receitaVariavel;
-	
+	// classe para receita
 	public Receita(double rf, double rv) {
 		receitaFixa = rf;
 		receitaVariavel = rv;

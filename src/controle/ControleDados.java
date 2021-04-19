@@ -1,7 +1,7 @@
 package controle;
 
 import financeiro.*;
-
+// controle de dados para integração com a interface
 public class ControleDados {
 	private Dados d = new Dados();
 	

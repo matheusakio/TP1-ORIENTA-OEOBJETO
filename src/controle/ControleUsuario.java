@@ -1,6 +1,6 @@
 package controle;
 import financeiro.*;
-
+//controle de usurario para integração com o controle de dados e interface
 public class ControleUsuario {
 	private Usuario[] usuario;
 	private int qtdUsuarios;

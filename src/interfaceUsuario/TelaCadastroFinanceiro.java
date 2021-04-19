@@ -36,13 +36,13 @@ public class TelaCadastroFinanceiro implements ActionListener {
 	//private int opcao;
 	private String s;
 
-	public void inserirCadastro(int op, ControleDados d, int pos) {
+	public void inserirCadastro(int op, ControleDados d, int pos) { // tela para cadastro financeiro do usuario
 
 		//opcao = op;
 		//posicao = pos;
 		//dados = d;
 
-		if (op == 1) s = "Cadastro de Aluno";
+		if (op == 1) s = "Cadastro de Financeiro";
 
 
 		janela = new JFrame(s);
@@ -61,23 +61,26 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			valorPlanoDeContas = new JTextField(200);
 			valorRendimentos = new JTextField(200);
 
-			botaoSalvar.setBounds(245, 175, 115, 30);
+			botaoSalvar.setBounds(245, 260, 115, 30);
 		}
+		// interface do usuario
 
 		labelReceitaFixa.setBounds(30, 20, 150, 25);
 		valorReceitaFixa.setBounds(180, 20, 180, 25);
 		labelReceitaVariavel.setBounds(30, 50, 150, 25);
 		valorReceitaVariavel.setBounds(180, 50, 180, 25);
-		labelDespesaFixa.setBounds(30, 50, 150, 25);
-		valorDespesaFixa.setBounds(180, 50, 180, 25);
-		labelDespesaVariavel.setBounds(30, 50, 150, 25);
-		valorDespesaVariavel.setBounds(180, 50, 180, 25);
-		labelImpostos.setBounds(30, 50, 150, 25);
-		valorImpostos.setBounds(180, 50, 180, 25);
-		labelPlanoDeContas.setBounds(30, 50, 150, 25);
-		valorPlanoDeContas.setBounds(180, 50, 180, 25);
-		labelRendimentos.setBounds(30, 50, 150, 25);
-		valorRendimentos.setBounds(180, 50, 180, 25);
+		labelDespesaFixa.setBounds(30, 80, 150, 25);
+		valorDespesaFixa.setBounds(180, 80, 180, 25);
+		labelDespesaVariavel.setBounds(30, 110, 150, 25);
+		valorDespesaVariavel.setBounds(180, 110, 180, 25);
+		labelImpostos.setBounds(30, 140, 150, 25);
+		valorImpostos.setBounds(180, 140, 180, 25);
+		labelPlanoDeContas.setBounds(30, 170, 150, 25);
+		valorPlanoDeContas.setBounds(180, 170, 180, 25);
+		labelRendimentos.setBounds(30, 200, 150, 25);
+		valorRendimentos.setBounds(180, 200, 180, 25);
+	
+
 
 
 		this.janela.add(labelReceitaFixa);
@@ -87,25 +90,25 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		this.janela.add(labelDespesaFixa);
 		this.janela.add(valorDespesaFixa);
 		this.janela.add(labelDespesaVariavel);
-		this.janela.add(valorDespesaVariavel);
+		this.janela.add(valorDespesaVariavel);   
 		this.janela.add(labelImpostos);
-		this.janela.add(valorImpostos);
+		this.janela.add(valorImpostos);   
 		this.janela.add(labelPlanoDeContas);
-		this.janela.add(valorPlanoDeContas);
+		this.janela.add(valorPlanoDeContas);   
 		this.janela.add(labelRendimentos);
 		this.janela.add(valorRendimentos);
 		this.janela.add(botaoSalvar);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(600, 350);
+		this.janela.setSize(425, 350);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
 		botaoExcluir.addActionListener(this);
 	}
 
-
+	// botoes para salvar e exluir (precisam ser melhorados, por isso estão com information
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoSalvar) {
