@@ -12,6 +12,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
 // tela para cadastrar um novo usuario
+/**
+ * Classe responsável pela interface graficado do cadastramento e edição dos dados do usuario, sendo nome e email
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class TelaCadastroUsuario implements ActionListener {
 
 	private JFrame janela;
@@ -25,6 +30,7 @@ public class TelaCadastroUsuario implements ActionListener {
 	private static ControleDados dados;
 	private int posicao;
 	private int opcao;
+	private Validadacao check = new Validadacao();
 
 
 	private String s;
@@ -94,6 +100,8 @@ public class TelaCadastroUsuario implements ActionListener {
 		if(src == botaoSalvar) {
 			try {
 				boolean res = false;
+				boolean tan = false;
+				
 				if(opcao == 1) //cadastro de novo usuario
 					novoDado[0] = Integer.toString(dados.getQtUsuario());
 				else // edicao de dado existente
@@ -101,12 +109,14 @@ public class TelaCadastroUsuario implements ActionListener {
 
 				novoDado[1] =  valorNome.getText();
 
-				if (opcao == 1 || opcao == 3) {
+				if ((opcao == 1 || opcao == 3 ) && check.validarEmail(valorEmail.getText())) {
 					novoDado[2] =  valorEmail.getText();
 					res = dados.inserirEditarUsuario(novoDado);
-				} 
+					tan = check.validarEmail(valorEmail.getText());
+					
+				} else tan = check.validarEmail(valorEmail.getText());
 
-				if(res) {
+				if(res && tan) {
 					mensagemSucessoCadastro();
 				}
 				else mensagemErroCadastro();
@@ -148,7 +158,8 @@ public class TelaCadastroUsuario implements ActionListener {
 	}
 
 	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n ", null, 
+		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n \n"
+				+ "Email incorreto \n", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
 

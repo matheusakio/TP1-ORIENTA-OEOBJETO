@@ -1,6 +1,7 @@
 package interfaceUsuario;
 import financeiro.*;
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +12,11 @@ import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import controle.*;
+/**
+ * Classe responsável por pela interface grafica de cadastrar todos dados financeiros do usuario, sendo ela redirecionado para o resultado final que colhe todas essas informações
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 
 public class TelaCadastroFinanceiro implements ActionListener {
 
@@ -28,7 +34,7 @@ public class TelaCadastroFinanceiro implements ActionListener {
 	private JLabel labelRendimentos = new JLabel("Rendimentos: ");
 	private JTextField valorRendimentos;
 	private JButton botaoExcluir = new JButton("Excluir");
-	private JButton botaoSalvar = new JButton("Salvar");
+	private JButton botaoSalvar = new JButton("Resultado Financeiro");
 	public static ControleDados dados = new ControleDados();
 	static Receita FinanceiroReceitas;
 	static Despesas FinanceiroDespesas;
@@ -66,7 +72,7 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			valorImpostos = new JTextField(200);
 			valorRendimentos = new JTextField(200);
 
-			botaoSalvar.setBounds(245, 260, 115, 30);
+			botaoSalvar.setBounds(220, 260, 170, 30);
 		}
 		// interface do usuario
 
@@ -106,7 +112,7 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
-		botaoExcluir.addActionListener(this);
+
 	}
 
 	// botoes para salvar e exluir (precisam ser melhorados, por isso estão com information
@@ -127,64 +133,15 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			}else {
 				PlanoFinal = "Nao, você está negativo";
 			}
-			new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2, ReceitaFinal, DespesaFinal, MontanteFinal, PlanoFinal);
-		}
-
-		if(src == botaoExcluir) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a excluir", null, 
-					JOptionPane.INFORMATION_MESSAGE);
-			/* boolean res = false;
-
-			if (opcao == 3) {//exclui aluno
-				res = dados.removerAluno(posicao);
-				if (res) mensagemSucessoExclusao(); 
-				else mensagemErroExclusaoAluno(); 
-			}
-
-*/
 			
-		} 
+			new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2, ReceitaFinal, DespesaFinal, MontanteFinal, PlanoFinal);
+		}// precisa implementar a logica casa nao ouver nenhum campo prenchidos
+
 	}
 
 	
 
 
-	/* public void mensagemSucessoExclusao() {
-		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 
-				JOptionPane.INFORMATION_MESSAGE);
-		janela.dispose();
-	}
 
-	public void mensagemSucessoCadastro() {
-		JOptionPane.showMessageDialog(null, "Os dados foram salvos com sucesso!", null, 
-				JOptionPane.INFORMATION_MESSAGE);
-		janela.dispose();
-	}
-
-	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null,"ERRO AO SALVAR OS DADOS!\n "
-				+ "Pode ter ocorrido um dos dois erros a seguir:  \n"
-				+ "1. Nem todos os campos foram preenchidos \n"
-				+ "2. CPF, identidade, DDD e telefone não contém apenas números", null, 
-				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public void mensagemErroExclusaoAluno() {
-		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n "
-				+ "Verifique se o aluno está matriculado\n"
-				+ "em alguma disciplina. Se sim, cancele\n "
-				+ "a matricula e tente novamente.", null, 
-				JOptionPane.ERROR_MESSAGE);
-	}
-	
-	public void mensagemErroExclusaoProf() {
-		JOptionPane.showMessageDialog(null,"Ocorreu um erro ao excluir o dado.\n "
-				+ "Verifique se o professor está responsável\n"
-				+ "por alguma disciplina. Se sim, substitua\n "
-				+ "o professor e tente novamente.", null, 
-				JOptionPane.ERROR_MESSAGE);
-	}*/
 
 } 

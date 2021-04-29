@@ -1,5 +1,10 @@
 package financeiro;
 import java.util.*;
+/**
+ * Classe responsável por todo usuario, nome e email
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 
 public class Usuario {
 	

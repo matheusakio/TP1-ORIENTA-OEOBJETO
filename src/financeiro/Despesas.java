@@ -1,5 +1,10 @@
 package financeiro;
-	// classe sobre as despesas fixas e variaveis para coletação de dados
+/**
+ * Classe responsável despesas fixas e variaveis para coletação de dados
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
+
 public class Despesas {
 	private double despesasFixas;
 	private double despesasVariavel;

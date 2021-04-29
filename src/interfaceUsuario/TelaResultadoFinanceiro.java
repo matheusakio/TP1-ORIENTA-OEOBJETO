@@ -1,5 +1,10 @@
 package interfaceUsuario;
 import java.awt.event.ActionEvent;
+/**
+ * Classe responsável pela interface grafica do resultado financeiro, aqui é onde todos sados são recolhidos e resumidos para o usuario
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -17,9 +22,9 @@ import financeiro.Receita;
 import financeiro.Rendimentos;
 import financeiro.Usuario;
 
-public class TelaResultadoFinanceiro implements ActionListener {
+public class TelaResultadoFinanceiro {
 	private JFrame janela = new JFrame("Resultado Financeiro");
-	private JButton atualizar = new JButton("Atualizar");
+
 	private static JLabel receita = new JLabel("Receita: ");
 	private static JTextField valorReceita;
 	private static JLabel despesas = new JLabel("Despesas: ");
@@ -45,7 +50,7 @@ public class TelaResultadoFinanceiro implements ActionListener {
 			valorMontante = new JTextField(MontanteFinal);
 			valorPlanos = new JTextField(PlanoFinal);
 
-			atualizar.setBounds(245, 260, 115, 30);
+
 			
 
 		}
@@ -66,7 +71,7 @@ public class TelaResultadoFinanceiro implements ActionListener {
 		this.janela.add(valorMontante);
 		this.janela.add(planos);
 		this.janela.add(valorPlanos);
-		this.janela.add(atualizar);
+
 		
 		this.janela.setLayout(null);
 		
@@ -74,17 +79,8 @@ public class TelaResultadoFinanceiro implements ActionListener {
 		this.janela.setSize(425, 350);
 		//janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.janela.setVisible(true);
-		atualizar.addActionListener(this);
+
 	}
 	
-	// botão para atualizar os dados do usuario
-	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
-		
-		if(src == atualizar)
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a atualizar", null, 
-					JOptionPane.INFORMATION_MESSAGE);
-	}
+
 }

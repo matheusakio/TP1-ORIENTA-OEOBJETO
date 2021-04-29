@@ -1,6 +1,11 @@
 package controle;
 import financeiro.*;
-//controle de usurario para integração com o controle de dados e interface
+/**
+ * Classe responsável por apresentar uma integração integração com o controle de dados e interface para o usuário
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
+
 public class ControleUsuario {
 	private Usuario[] usuario;
 	private int qtdUsuarios;

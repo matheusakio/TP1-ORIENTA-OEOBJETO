@@ -1,5 +1,9 @@
 package financeiro;
-
+/**
+ * Classe responsável criação plano futuro
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class PlanoDeContas {
 	private double planos;
 	// Classe para planos futuros

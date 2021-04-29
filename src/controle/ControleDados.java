@@ -1,9 +1,13 @@
 package controle;
 
 import financeiro.*;
+/**
+ * Classe responsável por apresentar uma integração com a interface para o usuário
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 
 
-// controle de dados para integração com a interface
 public class ControleDados {
 	private Dados d = new Dados();
 	

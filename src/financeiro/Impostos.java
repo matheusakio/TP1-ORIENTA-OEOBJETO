@@ -1,5 +1,9 @@
 package financeiro;
-
+/**
+ * Classe responsável pela criação de imposto
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class Impostos {
 	private double impostosDespesas;
 	// Criação de impostos

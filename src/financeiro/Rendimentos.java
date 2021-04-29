@@ -1,4 +1,9 @@
 package financeiro;
+/**
+ * Classe responsável pelo valor do rendimento 
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 
 public class Rendimentos {
 	private double rendimentos;

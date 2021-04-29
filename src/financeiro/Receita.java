@@ -1,4 +1,9 @@
 package financeiro;
+/**
+ * Classe responsável receitas fixas e variaveis para coletação de dados
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 
 public class Receita {
 	private double receitaFixa;

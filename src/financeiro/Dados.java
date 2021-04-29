@@ -1,6 +1,10 @@
 package financeiro;
 
-
+/**
+ * Classe responsável pelo dados iniciais do usuario
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class Dados {
 	private  Usuario[] usuario = new Usuario[50];
 	private int qtdUsuarios = 0;
@@ -15,7 +19,7 @@ public class Dados {
 	private PlanoDeContas [] plano = new PlanoDeContas[50];
 	private int qtdPlano = 0;
 	
-	// dados do usuario, setados para 5 usuarios e com dados pre setados porque estava chachando quando tentava criar um input 
+	
 	public void fillWithSomeData() {
 		for(int i = 0; i < 0; i++) {
 			 usuario[i] = new Usuario ("usuario"+i, 

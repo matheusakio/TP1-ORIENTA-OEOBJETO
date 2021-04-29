@@ -6,7 +6,11 @@ import javax.swing.event.*;
 import controle.*;
 
 
-// aqui é onde veremos os usuarios cadastrados e onde tera um botão para cadastrar
+/**
+ * Classe responsável pela interface grafica do cadastro do usuario, aqui é onde vemos todos usuarios cadastrados e redireciona para o cadastro de novos usuarios
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class TelaUsuario implements ActionListener, ListSelectionListener {		
 	private JFrame janela;
 	private JLabel titulo;
@@ -27,7 +31,7 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 			janela = new JFrame("Usuarios");
 			titulo = new JLabel("Usuarios Cadastros");
 			cadastro = new JButton("Cadastrar");
-			refresh = new JButton("Refresh");
+			refresh = new JButton("Atualizar");
 			// interface dos usuarios cadastrados
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
 			titulo.setBounds(90, 10, 250, 30);
