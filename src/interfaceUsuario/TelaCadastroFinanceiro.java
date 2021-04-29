@@ -1,4 +1,5 @@
 package interfaceUsuario;
+import financeiro.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,17 +25,22 @@ public class TelaCadastroFinanceiro implements ActionListener {
 	private JTextField valorDespesaVariavel;
 	private JLabel labelImpostos = new JLabel("Imposto: ");
 	private JTextField valorImpostos;
-	private JLabel labelPlanoDeContas = new JLabel("Plano de contas: ");
-	private JTextField valorPlanoDeContas;
 	private JLabel labelRendimentos = new JLabel("Rendimentos: ");
 	private JTextField valorRendimentos;
 	private JButton botaoExcluir = new JButton("Excluir");
 	private JButton botaoSalvar = new JButton("Salvar");
+	public static ControleDados dados = new ControleDados();
+	static Receita FinanceiroReceitas;
+	static Despesas FinanceiroDespesas;
+	static Impostos FinanceiroImpostos;
+	static Rendimentos FinanceiroRendimento;
+	static PlanoDeContas FinanceiroPlano;
+	String PlanoFinal;
 	//private String[] novoDado = new String[9];
 	//private static ControleDados dados;
 	//private int posicao;
 	//private int opcao;
-	private String s;
+	private String nomePagina;
 
 	public void inserirCadastro(int op, ControleDados d, int pos) { // tela para cadastro financeiro do usuario
 
@@ -42,10 +48,10 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		//posicao = pos;
 		//dados = d;
 
-		if (op == 1) s = "Cadastro de Financeiro";
+		if (op == 1) nomePagina = "Cadastro de Financeiro";
 
 
-		janela = new JFrame(s);
+		janela = new JFrame(nomePagina);
 
 		//Preenche dados com dados do aluno clicado
 		if (op == 3) {
@@ -58,7 +64,6 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			valorDespesaFixa = new JTextField(200);
 			valorDespesaVariavel = new JTextField(200);
 			valorImpostos = new JTextField(200);
-			valorPlanoDeContas = new JTextField(200);
 			valorRendimentos = new JTextField(200);
 
 			botaoSalvar.setBounds(245, 260, 115, 30);
@@ -75,10 +80,8 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		valorDespesaVariavel.setBounds(180, 110, 180, 25);
 		labelImpostos.setBounds(30, 140, 150, 25);
 		valorImpostos.setBounds(180, 140, 180, 25);
-		labelPlanoDeContas.setBounds(30, 170, 150, 25);
-		valorPlanoDeContas.setBounds(180, 170, 180, 25);
-		labelRendimentos.setBounds(30, 200, 150, 25);
-		valorRendimentos.setBounds(180, 200, 180, 25);
+		labelRendimentos.setBounds(30, 170, 150, 25);
+		valorRendimentos.setBounds(180, 170, 180, 25);
 	
 
 
@@ -92,9 +95,7 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		this.janela.add(labelDespesaVariavel);
 		this.janela.add(valorDespesaVariavel);   
 		this.janela.add(labelImpostos);
-		this.janela.add(valorImpostos);   
-		this.janela.add(labelPlanoDeContas);
-		this.janela.add(valorPlanoDeContas);   
+		this.janela.add(valorImpostos);     
 		this.janela.add(labelRendimentos);
 		this.janela.add(valorRendimentos);
 		this.janela.add(botaoSalvar);
@@ -112,25 +113,22 @@ public class TelaCadastroFinanceiro implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoSalvar) {
-			JOptionPane.showMessageDialog(null, 
-					"Ainda precisam ser implementadas as funcionalidades\n"
-					+ "relacionadas a salvar", null, 
-					JOptionPane.INFORMATION_MESSAGE);
-/*			try {
-				if(opcao == 1) //cadastro de novo aluno
-					novoDado[0] = Integer.toString(dados.getQtUsuario());
-
-
-				novoDado[1] =  valorNome.getText();
-				novoDado[2] =  valorEmail.getText();
-
-
-			} catch (NullPointerException exc1) {
-				mensagemErroCadastro();
-			} catch (NumberFormatException exc2) {
-				mensagemErroCadastro();
-			}*/
-		} 
+			FinanceiroReceitas = new Receita(Double.parseDouble(valorReceitaFixa.getText()), Double.parseDouble(valorReceitaVariavel.getText()));
+			String ReceitaFinal = String.valueOf(FinanceiroReceitas.getReceitaFixa() + FinanceiroReceitas.getReceitaVariavel());
+			FinanceiroDespesas = new Despesas(Double.parseDouble(valorDespesaFixa.getText()), Double.parseDouble(valorDespesaVariavel.getText()));
+			String DespesaFinal = String.valueOf(FinanceiroDespesas.getDepesasFixas() + FinanceiroDespesas.getDepesasVariavel());
+			FinanceiroImpostos = new Impostos(Double.parseDouble(valorImpostos.getText()));
+			//String ImpostoFinal = String.valueOf(FinanceiroImpostos.getImpostos());
+			FinanceiroRendimento = new Rendimentos(Double.parseDouble(valorRendimentos.getText()));
+			double calculoMontanteFinal =(FinanceiroRendimento.getRendimentos() + FinanceiroReceitas.getReceitaFixa() + FinanceiroReceitas.getReceitaVariavel()) - (FinanceiroDespesas.getDepesasFixas() + FinanceiroDespesas.getDepesasVariavel() - FinanceiroImpostos.getImpostos()); 
+			String MontanteFinal = String.valueOf(calculoMontanteFinal);
+			if(calculoMontanteFinal > 0) {
+				PlanoFinal = "Sim, você está positivo";
+			}else {
+				PlanoFinal = "Nao, você está negativo";
+			}
+			new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2, ReceitaFinal, DespesaFinal, MontanteFinal, PlanoFinal);
+		}
 
 		if(src == botaoExcluir) {
 			JOptionPane.showMessageDialog(null, 
@@ -149,7 +147,9 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			
 		} 
 	}
+
 	
+
 
 	/* public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null, 

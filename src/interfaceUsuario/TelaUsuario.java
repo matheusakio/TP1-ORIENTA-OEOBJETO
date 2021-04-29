@@ -69,7 +69,7 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 		
 		//Cadastro de novo usuario
 		if(src == cadastro)
-			new TelaCadastroUsuario().inserirEditar(1, dados, this, 0);
+			new TelaCadastroUsuario().inserirEditar(1, dados, this, 1);
 
 
 		// Atualiza a lista de nomes dos usuarios mostrada no JList

@@ -53,8 +53,8 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == cadastro)
 			new TelaCadastroFinanceiro().inserirCadastro(1, dados ,0);		
-		if(src == resultado)
-			new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2);
+		//if(src == resultado)
+			//new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2);
 
 	}
 }

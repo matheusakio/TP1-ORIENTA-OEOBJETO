@@ -15,9 +15,9 @@ public class Usuario {
 	}
 	
 
-	public String toString() {	
-		return "Nome do Úsuario: " + nome + ", Email: " + email;
-	}
+//	public String toString() {	
+//		return "Nome do Úsuario: " + nome + ", Email: " + email;
+//	}
 
 
 	public String getNome() {

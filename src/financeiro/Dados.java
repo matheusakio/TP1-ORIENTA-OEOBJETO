@@ -17,29 +17,27 @@ public class Dados {
 	
 	// dados do usuario, setados para 5 usuarios e com dados pre setados porque estava chachando quando tentava criar um input 
 	public void fillWithSomeData() {
-		for(int i = 0; i < 5; i++) {
-			 usuario[i] = new Usuario ("Matheus Akio", 
-					"matheus.akio2@gmail.com");
+		for(int i = 0; i < 0; i++) {
+			 usuario[i] = new Usuario ("usuario"+i, 
+					"email"+i);
 			
-			receita[i] = new Receita (1500.00, 
-					0);
+			receita[i] = new Receita ((i+1)*112233, (i+1)*112233);
 			
-			despesas[i] = new Despesas (700.00, 
-					200);
+			despesas[i] = new Despesas ((i+1)*112233, (i+1)*112233);
 			
-			impostos[i] = new Impostos (100.00);
+			impostos[i] = new Impostos ((i+1)*112233);
 			
-			rendimentos[i] = new Rendimentos (0);
+			rendimentos[i] = new Rendimentos ((i+1)*112233);
 			
-			plano[i] = new PlanoDeContas (0);		
+			plano[i] = new PlanoDeContas ((i+1)*112233);		
 		}
 		
-		qtdUsuarios = 5;
-		qtdReceita = 5;
-		qtdDespesas = 5;
-		qtdImpostos = 5;
-		qtdRendimentos = 5;
-		qtdPlano = 5;
+		qtdUsuarios = 0;
+		qtdReceita = 0;
+		qtdDespesas = 0;
+		qtdImpostos = 0;
+		qtdRendimentos = 0;
+		qtdPlano = 0;
 	}
 	
 	
@@ -51,7 +49,7 @@ public class Dados {
 		this.usuario = usuario;
 	}
 	
-	public void inserirEditarUsuario(Usuario a, int pos) {
+	public void inserirEditaUsuario(Usuario a, int pos) {
 		this.usuario[pos] = a;
 		if(pos == qtdUsuarios) qtdUsuarios++;
 	}

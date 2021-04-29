@@ -6,37 +6,48 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-//import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+//import javax.swing.JOptionPane;
 import controle.*;
 // tela onde teremos todos resultados recolhidos nas telas anteriores
+import financeiro.Despesas;
+import financeiro.Impostos;
+import financeiro.PlanoDeContas;
+import financeiro.Receita;
+import financeiro.Rendimentos;
+import financeiro.Usuario;
 
 public class TelaResultadoFinanceiro implements ActionListener {
 	private JFrame janela = new JFrame("Resultado Financeiro");
 	private JButton atualizar = new JButton("Atualizar");
 	private static JLabel receita = new JLabel("Receita: ");
-	private JTextField valorReceita;
+	private static JTextField valorReceita;
 	private static JLabel despesas = new JLabel("Despesas: ");
-	private JTextField valorDespesas;
-	private static JLabel montante = new JLabel("Estou positivo? ");
-	private JTextField valorMontante;
+	private static JTextField valorDespesas;
+	private static JLabel montante = new JLabel("Montante Final? ");
+	private static JTextField valorMontante;
 	private static JLabel planos = new JLabel("Planos futuro possível? ");
-	private JTextField valorPlanos;
+	private static JTextField valorPlanos;
 	
 	public static ControleDados dados = new ControleDados();
+
 	
-	public void resultadoFinanceiro(ControleDados d, int op) {
-		if (op == 3) {
+	public void resultadoFinanceiro(ControleDados d, int op, String ReceitaFinal, String DespesaFinal, String MontanteFinal, String PlanoFinal) {
+
+		
+		if (op == 2) {
 			
-
-		} else{ 
-
-			valorReceita = new JTextField(200);
-			valorDespesas = new JTextField(200);
-			valorMontante = new JTextField(200);
-			valorPlanos = new JTextField(200);
+			//FinanceiroReceitas = new Receita (1500.00, 
+			//		0);
+			//String ReceitaFinal = String.valueOf(FinanceiroReceitas.getReceitaFixa() + FinanceiroReceitas.getReceitaVariavel());
+		 	valorReceita = new JTextField(ReceitaFinal);
+			valorDespesas = new JTextField(DespesaFinal);
+			valorMontante = new JTextField(MontanteFinal);
+			valorPlanos = new JTextField(PlanoFinal);
 
 			atualizar.setBounds(245, 260, 115, 30);
+			
+
 		}
 		// interface da pagina resultado finaceiro
 		receita.setBounds(30, 20, 150, 25);
