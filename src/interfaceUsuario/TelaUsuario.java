@@ -26,7 +26,7 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 
 		switch (op) {
 		case 1:// Mostrar dados dos usuarios cadastrados (JList)
-			listaNomes = new ControleUsuario(dados).getNomeAluno();
+			listaNomes = new ControleUsuario(dados).getNomeUsuario();
 			listaUsuariosCadastrados = new JList<String>(listaNomes);
 			janela = new JFrame("Usuarios");
 			titulo = new JLabel("Usuarios Cadastros");
@@ -78,7 +78,7 @@ public class TelaUsuario implements ActionListener, ListSelectionListener {
 
 		// Atualiza a lista de nomes dos usuarios mostrada no JList
 		if(src == refresh) {
-			listaUsuariosCadastrados.setListData(new ControleUsuario(dados).getNomeAluno());			
+			listaUsuariosCadastrados.setListData(new ControleUsuario(dados).getNomeUsuario());			
 			listaUsuariosCadastrados.updateUI();
 		}
 

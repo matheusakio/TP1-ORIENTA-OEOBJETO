@@ -16,7 +16,7 @@ public class ControleUsuario {
 		
 	}
 	
-	public String[] getNomeAluno() {
+	public String[] getNomeUsuario() {
 		String[] s = new String[qtdUsuarios];
 		for(int i = 0; i < qtdUsuarios; i++) {
 			s[i] = usuario[i].getNome();

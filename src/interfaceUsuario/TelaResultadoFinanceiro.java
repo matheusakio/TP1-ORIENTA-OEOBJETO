@@ -1,10 +1,5 @@
 package interfaceUsuario;
 import java.awt.event.ActionEvent;
-/**
- * Classe responsável pela interface grafica do resultado financeiro, aqui é onde todos sados são recolhidos e resumidos para o usuario
- * @author Matheus Akio
- * @version 1.0 (28/04/2021)
- */
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -22,6 +17,11 @@ import financeiro.Receita;
 import financeiro.Rendimentos;
 import financeiro.Usuario;
 
+/**
+ * Classe responsável pela interface grafica do resultado financeiro, aqui é onde todos sados são recolhidos e resumidos para o usuario
+ * @author Matheus Akio
+ * @version 1.0 (28/04/2021)
+ */
 public class TelaResultadoFinanceiro {
 	private JFrame janela = new JFrame("Resultado Financeiro");
 

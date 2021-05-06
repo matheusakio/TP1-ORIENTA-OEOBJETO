@@ -6,8 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -19,7 +21,6 @@ import controle.*;
  */
 
 public class TelaCadastroFinanceiro implements ActionListener {
-
 	private JFrame janela;
 	private JLabel labelReceitaFixa= new JLabel("Receita Fixa: ");
 	private JTextField valorReceitaFixa;
@@ -42,6 +43,9 @@ public class TelaCadastroFinanceiro implements ActionListener {
 	static Rendimentos FinanceiroRendimento;
 	static PlanoDeContas FinanceiroPlano;
 	String PlanoFinal;
+    String nomes[]={"India","Aus","U.S.A","England","Newzealand"};        
+	private JList<String> listaUsuariosCadastrados;
+	private String[] listaNomes = new String[50];
 	//private String[] novoDado = new String[9];
 	//private static ControleDados dados;
 	//private int posicao;
@@ -52,12 +56,14 @@ public class TelaCadastroFinanceiro implements ActionListener {
 
 		//opcao = op;
 		//posicao = pos;
-		//dados = d;
+		dados = d;
 
 		if (op == 1) nomePagina = "Cadastro de Financeiro";
 
 
 		janela = new JFrame(nomePagina);
+		listaNomes = new ControleUsuario(dados).getNomeUsuario();
+		JComboBox nomeUsuarios =new JComboBox(listaNomes);
 
 		//Preenche dados com dados do aluno clicado
 		if (op == 3) {
@@ -72,22 +78,22 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			valorImpostos = new JTextField(200);
 			valorRendimentos = new JTextField(200);
 
-			botaoSalvar.setBounds(220, 260, 170, 30);
+			botaoSalvar.setBounds(220, 300, 170, 30);
 		}
 		// interface do usuario
-
-		labelReceitaFixa.setBounds(30, 20, 150, 25);
-		valorReceitaFixa.setBounds(180, 20, 180, 25);
-		labelReceitaVariavel.setBounds(30, 50, 150, 25);
-		valorReceitaVariavel.setBounds(180, 50, 180, 25);
-		labelDespesaFixa.setBounds(30, 80, 150, 25);
-		valorDespesaFixa.setBounds(180, 80, 180, 25);
-		labelDespesaVariavel.setBounds(30, 110, 150, 25);
-		valorDespesaVariavel.setBounds(180, 110, 180, 25);
-		labelImpostos.setBounds(30, 140, 150, 25);
-		valorImpostos.setBounds(180, 140, 180, 25);
-		labelRendimentos.setBounds(30, 170, 150, 25);
-		valorRendimentos.setBounds(180, 170, 180, 25);
+		labelReceitaFixa.setBounds(30, 80, 150, 25);
+		valorReceitaFixa.setBounds(180, 80, 180, 25);
+		labelReceitaVariavel.setBounds(30, 110, 150, 25);
+		valorReceitaVariavel.setBounds(180, 110, 180, 25);
+		labelDespesaFixa.setBounds(30, 140, 150, 25);
+		valorDespesaFixa.setBounds(180, 140, 180, 25);
+		labelDespesaVariavel.setBounds(30, 170, 150, 25);
+		valorDespesaVariavel.setBounds(180, 170, 180, 25);
+		labelImpostos.setBounds(30, 200, 150, 25);
+		valorImpostos.setBounds(180, 200, 180, 25);
+		labelRendimentos.setBounds(30, 230, 150, 25);
+		valorRendimentos.setBounds(180, 230, 180, 25);    
+		nomeUsuarios.setBounds(100, 30, 180, 25);   
 	
 
 
@@ -105,20 +111,22 @@ public class TelaCadastroFinanceiro implements ActionListener {
 		this.janela.add(labelRendimentos);
 		this.janela.add(valorRendimentos);
 		this.janela.add(botaoSalvar);
+		this.janela.add(nomeUsuarios);
 
 		this.janela.setLayout(null);
 
-		this.janela.setSize(425, 350);
+		this.janela.setSize(425, 380);
 		this.janela.setVisible(true);
 
 		botaoSalvar.addActionListener(this);
 
 	}
 
-	// botoes para salvar e exluir (precisam ser melhorados, por isso estão com information
+
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == botaoSalvar) {
+	
 			FinanceiroReceitas = new Receita(Double.parseDouble(valorReceitaFixa.getText()), Double.parseDouble(valorReceitaVariavel.getText()));
 			String ReceitaFinal = String.valueOf(FinanceiroReceitas.getReceitaFixa() + FinanceiroReceitas.getReceitaVariavel());
 			FinanceiroDespesas = new Despesas(Double.parseDouble(valorDespesaFixa.getText()), Double.parseDouble(valorDespesaVariavel.getText()));
@@ -135,6 +143,7 @@ public class TelaCadastroFinanceiro implements ActionListener {
 			}
 			
 			new TelaResultadoFinanceiro().resultadoFinanceiro(dados, 2, ReceitaFinal, DespesaFinal, MontanteFinal, PlanoFinal);
+			
 		}// precisa implementar a logica casa nao ouver nenhum campo prenchidos
 
 	}

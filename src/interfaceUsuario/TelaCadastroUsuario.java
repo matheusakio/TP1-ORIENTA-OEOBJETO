@@ -18,7 +18,6 @@ import controle.*;
  * @version 1.0 (28/04/2021)
  */
 public class TelaCadastroUsuario implements ActionListener {
-
 	private JFrame janela;
 	private JLabel labelNome = new JLabel("Nome: ");
 	private JTextField valorNome;
